@@ -1,11 +1,15 @@
 # Returns new array for which block's condition is true
 def my_select(collection)
-  if block_given?         # True if method is called with a bloc
-
-
-  else 
-    puts "Hey! No block was given!"
+  new_collection = [ ]
+  i = 0
+  while i < collection.length
+    new_collection[i] = yield(collection[i])
+    # new_collection << yield(collection[i]) # Could also use shovel
+    i += 1
   end
+  new_collection                   # Return modified array
+
+
 
 end
 

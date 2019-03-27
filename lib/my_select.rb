@@ -6,26 +6,12 @@ def my_select(collection)
     if yield(collection[i])
       new_collection << yield(collection[i])
     end
-
     i += 1
   end
   new_collection                   # Return modified array
-
-
-
 end
 
 
-
-  it "can handle an empty collection" do
-    empty_array = []
-    saved_block = Proc.new {
-      my_select(empty_array) do |x|
-        raise "This block should not run!"
-      end
-    }
-    expect(saved_block).to_not raise_error
-  end
 
   it "yields the correct element" do
     my_select(nums) do |number|
